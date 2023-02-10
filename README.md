@@ -15,4 +15,8 @@ https://ionicframework.com/docs/angular/your-first-app this should be able to he
 We're going to be using the Angular framework, it works best with ionic, to install it run this <br >
 npm install -g @angular/cli <br >
 after you've completed the other previous steps 
-
+<br >
+<br >
+Once you have completed all this and you cloned the repository, to try and see how the app runs, run this on your perminal<br >
+ionic serve <br >
+because it opens up on a web browser, you'd have to inspect and change dimentions into phone dimentions
