@@ -12,4 +12,7 @@ Visual Studio Code or another IDE that you prefer, this is my preferance for web
 ionic cli, go to the website and follow their steps<br >
 now because a lot of us havent really used this before i suggest trying to make a dummy app to set things up 
 https://ionicframework.com/docs/angular/your-first-app this should be able to help a fair bit. <br >
-We're going to be using the Angular framework, it works best with ionic. 
+We're going to be using the Angular framework, it works best with ionic, to install it run this <br >
+npm install -g @angular/cli <br >
+after you've completed the other previous steps 
+
