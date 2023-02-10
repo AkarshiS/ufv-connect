@@ -1,0 +1,8 @@
+{
+  "name": "UFVConnect",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "69adf305"
+}
