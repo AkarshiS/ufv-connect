@@ -1,0 +1,33 @@
+
+ion-header{
+    position: absolute;
+}
+
+ion-content{
+    --ion-background-color:rgb(255, 255, 255) !important;
+}
+
+ion-toolbar{
+    --ion-background-color: transparent;
+    --opacity:0;
+}
+/*
+.signin-btns{
+    margin-top: 25px;
+
+}*/
+
+.wrapform{
+    margin-top: 30px;
+}
+
+ion-item{
+    ion-input{
+        color:rgb(0, 0, 0);
+    }
+}
+
+ion-card{
+    --ion-background-color: transparent;
+    box-shadow: none !important;
+}
