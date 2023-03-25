@@ -30,4 +30,27 @@ ion-item{
 ion-card{
     --ion-background-color: transparent;
     box-shadow: none !important;
+    margin-left: -10px;
+    margin-right:0px;
+    margin-top:1px;
+}
+
+.login-btn{
+    --ion-color-primary: #00703C;
+}
+
+.ion-margin{
+    padding-top: 100px;
+  }
+
+.btn-color{
+    --color: secondary;
+}
+ion-img{
+    margin-left:0px;
+    margin-right:0px;
+}
+.image-bottom{
+    margin-bottom:100px;
+    margin-top:100px;
 }

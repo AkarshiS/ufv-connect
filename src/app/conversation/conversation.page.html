@@ -1,0 +1,75 @@
+<!--<ion-content>
+<div class="header ion-padding">
+  <div class = "info">
+  <ion-icon name="chevron-back-outline" routerLink="/chat"></ion-icon>
+  <ion-avatar>
+    <img src="https://i.pravatar.cc/243" alt="">
+  </ion-avatar>
+  <span class = "details">
+    <h1>{{name}}</h1>
+    <p>Online</p>
+  </span>
+  </div>
+  <div class="calling">
+    <ion-icon name="videocam-outline"></ion-icon>
+  </div>
+</div>
+<div class="conversation ion-padding">
+  <div class="chat-section" id="chat">
+    <div class="chat">
+      
+    </div>
+  </div>
+</div>
+
+<div class="message-input">
+  <ion-input placeholder="Type message..."></ion-input>
+  <div class="send-button">
+    <ion-icon name="send-sharp"></ion-icon>
+  </div>
+</div>
+</ion-content> -->
+
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon name="chevron-back-outline" routerLink="/chat"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+
+  <ion-list
+    lines="none"
+    *ngIf="(chats) as chat$">
+    <ion-item-group class="chats-group" *ngFor="let chat of chat$">
+      <app-chat-box [chat]="chat" [current_user_id]="currentUserId"></app-chat-box>
+    </ion-item-group>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-textarea
+    autoGrow
+    rows="1"
+    placeholder="Type message..."
+    class="ion-text-left"
+    [(ngModel)]="message">
+  </ion-textarea>
+  <ion-buttons slot="end">
+    <ion-fab-button size="small" *ngIf="!isLoading" (click)= "sendMessage()">
+      <ion-icon name="chevron-up-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button *ngIf="isLoading" size="small" color="primary">
+      <ion-spinner name="crescent" color="secondary"></ion-spinner>
+    </ion-fab-button>
+  </ion-buttons> 
+
+  </ion-toolbar>
+</ion-footer>
+

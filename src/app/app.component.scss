@@ -125,5 +125,9 @@ ion-menu::part(backdrop) {
 ion-menu::part(container) {
   border-radius: 0 20px 20px 0;
 
-  box-shadow: 4px 0px 16px rgba(0, 163, 41, 0.521);
+  box-shadow: 4px 0px 16px rgba(1, 165, 42, 0.788);
+}
+.ion-margin{
+  padding-left: 50px;
+  padding-right: 50px; 
 }

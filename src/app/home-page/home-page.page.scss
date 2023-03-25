@@ -7,3 +7,12 @@ ion-menu::part(backdrop) {
   
     box-shadow: 4px 0px 16px rgba(0, 163, 41, 0.521);
   }
+
+ion-header{
+    ion-toolbar{
+      --background:#00703C;
+      font-size: 2rem !important;
+      color: #fff;
+    }
+}
+

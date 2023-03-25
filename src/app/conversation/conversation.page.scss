@@ -1,0 +1,125 @@
+ion-content.header{
+    ion-avatar{
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+   // --background: #00703C; 
+  // --background: #fff;
+   .header{
+       display:flex;
+       align-items: center;
+       justify-content: space-between;
+       letter-spacing: 1px;
+       height: 10vh; 
+       ion-icon{ 
+           font-size: 1.6rem;
+           color: #fff;
+           margin-top: 30px;
+       } 
+   }
+}
+
+.info{
+    display:flex;
+    align-items: center;
+    ion-avatar{
+        max-width: 40px;
+        max-height: 40px;
+        margin-left:15px;
+        margin-top: 40px;
+    } 
+    .details{
+        margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        h1,p{
+            margin: 0;
+            margin-left: 0px;
+            margin-top: 40px;
+        }
+        h1{
+            font-size: 1.0rem;
+        }
+        p{
+            margin-top: 3px;
+            font-size: 0.8rem;
+        }
+
+    } 
+}
+
+.conversation{
+    background: #fff;
+    height: 90vh;
+    margin-top: 15px;
+    .chat-section{
+        height: calc(100%);
+        overflow: scroll;
+        
+        .chat{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+.message-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 20px;
+    width: 90vw;
+    left: 50%;
+    margin-left: -45vw;
+    ion-input{
+    border: 1px solid;
+    background: rgb(219, 219, 219);
+    border-radius: 20px;
+    border-color: #00703C;
+    height: 40px;
+    --padding-start: 20px;
+    }
+}
+.send-button{
+    margin-left: 20px;
+    background: #8DC63F;
+    padding: 12px 12px 9px 15px;
+    border-radius: 50%;
+    color: #fff;
+
+}
+ion-fab-button{
+    --background: #8DC63F;
+}
+/*
+ion-textarea{
+    --background: #ffffff;
+    --color: rgb(0, 0, 0);
+    --padding-end: 50px;
+    --padding-start: 10px;
+    --placeholder-color: rgba(61, 61, 61, 0.664);
+    --placeholder-opacity: 0.8;
+    --margin-right: 50px;
+
+    border: 1px solid;
+    background: rgb(219, 219, 219);
+    border-radius: 20px;
+    border-color: #00703C;
+    height: 35px;
+    //--padding-start: 20px;
+  } */
+  ion-footer{
+      ion-toolbar{
+          background-color: white;
+          padding: 5px;
+          ion-textarea{
+              border: 1px solid var(--ion-color-primary);
+              border-radius: 20px;
+              margin: 0.5vh 0;
+              padding-left: 10px;
+              background-color: white;
+          }
+      }
+  }
