@@ -1,28 +1,33 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+//mport { AuthGuard } from './guards/auth/auth.guard';
+import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
 const routes: Routes = [
-
+{
+  path: '',
+  redirectTo: 'home',
+  pathMatch: 'full'
+},
   
-  /* { path: '',
-    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
-  },
-  
-  {
-    path: '',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
-  },*/
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    ...canActivate(redirectLoggedInToHome)
   },
   {
     path: 'splash',
     loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+    
   },
   {
-    path: '',
-    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule)
+    path: 'home',
+    loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule),
+    //canLoad: [AuthGuard]
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'event',
@@ -39,24 +44,13 @@ const routes: Routes = [
   {
     path: 'conversation',
     loadChildren: () => import('./conversation/conversation.module').then( m => m.ConversationPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   }
-  /*{
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
-  {
-    path: 'splash',
-    loadChildren: () => import('./tabs/splash/splash.module').then( m => m.SplashPageModule)
-  },
-  {
-    path: 'login',
-   loadChildren: () => import('./tabs/login/login.module').then( m => m.LoginPageModule)
-   } */
+  
+
 ];
 
 @NgModule({

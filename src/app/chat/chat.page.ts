@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalController, PopoverController } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Observable, take } from 'rxjs';
+import { NavigationExtras, Router } from '@angular/router';
+import { ChatService } from '../services/chat/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -14,20 +15,30 @@ export class ChatPage implements OnInit {
   @ViewChild('popover') popover: PopoverController;
   segment = 'chats';
   open_new_chat = false;
-  users = [
-    {id: 1, name: 'Test One', photo: 'https://i.pravatar.cc/385'},
-    {id: 2, name: 'Test Two', photo: 'https://i.pravatar.cc/325'}
-  ];
-  chatRooms = [
-    {id: 1, name: 'Test One', photo: 'https://i.pravatar.cc/385'},
-    {id: 2, name: 'Test Two', photo: 'https://i.pravatar.cc/325'}
-  ];
+  users: Observable<any[]>;
+  chatRooms: Observable<any[]>;
+  //users = [
+  //  {id: 1, name: 'Test One', photo: 'https://i.pravatar.cc/385'},
+  //  {id: 2, name: 'Test Two', photo: 'https://i.pravatar.cc/325'}
+  //];
+  // chatRooms = [
+  //   {id: 1, name: 'Test One', photo: 'https://i.pravatar.cc/385'},
+  //   {id: 2, name: 'Test Two', photo: 'https://i.pravatar.cc/325'}
+  // ];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private chatService: ChatService
   ) { }
 
   ngOnInit() {
+    this.getRooms();
+  }
+
+  getRooms(){
+    this.chatService.getChatRooms();
+    this.chatRooms = this.chatService.chatRooms;
+    console.log('chatrooms: ', this.chatRooms);
   }
 
   logout() {
@@ -40,6 +51,12 @@ export class ChatPage implements OnInit {
 
   newChat(){
     this.open_new_chat = true;
+    if(!this.users) this.getUsers();
+  }
+
+  getUsers() {
+    this.chatService.getUsers();
+    this.users = this.chatService.users; 
   }
 
   onWillDismiss(event: any) {}
@@ -49,11 +66,41 @@ export class ChatPage implements OnInit {
     this.open_new_chat = false;
   }
 
-  startChat(item){
-
+  async startChat(item){
+    try {
+     // this.global.showLoader();
+      const room = await this.chatService.createChatRoom(item?.uid);
+      console.log('room: ', room);
+      this.cancel();
+      const navData: NavigationExtras = {
+        queryParams: {
+          name: item?.name
+        }
+      };
+      this.router.navigate(['/','chat', 'chats',room?.id], navData);
+     // this.global.hideLoader();
+    } catch(e){
+      console.log(e);
+     // this.global.hideLoader();
+    }
   }
 
   getChat(item){
-    this.router.navigate(['/','chat','chats',item?.id])
+  //  this.router.navigate(['/','chat','conversation',item?.id], navData);
+    (item?.user).pipe(
+      take(1)
+    ).subscribe(user_data => {
+      console.log('data: ', user_data);
+      const navData: NavigationExtras = {
+        queryParams: {
+          name: user_data?.name
+        }
+      };
+      this.router.navigate(['/','chat','chats',item?.id], navData);
+    });
+  }
+
+  getUser(user: any){
+    return user;
   }
 }

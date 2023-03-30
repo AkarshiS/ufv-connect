@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ufv-connect"
+  },
+  "targets": {
+    "ufv-connect": {
+      "hosting": {
+        "app": [
+          "ufv-connect"
+        ]
+      }
+    }
+  }
+}

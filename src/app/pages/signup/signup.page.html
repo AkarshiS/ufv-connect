@@ -1,0 +1,116 @@
+<ion-header>
+
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+       <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!---
+<ion-content>
+  <ion-spinner class="ion-text-center" name="crescent" *ngIf="isLoading"></ion-spinner>
+<form [formGroup]="signupForm">
+  
+  <ion-card>
+    <ion-img src="assets/images/ufv design 1.png" class="top-design"></ion-img>
+    <ion-card-title class="ion-text-center">
+      CREATE ACCOUNT
+    </ion-card-title> 
+  </ion-card> 
+  <div class="ion-text-center">
+
+  </div> 
+  
+  <ion-card-content>
+    
+  <div class="ion-text-center">
+
+    <ion-item>
+      <ion-label color="secondary" position="stacked">Username</ion-label>
+      <ion-input 
+      formControlName="username">
+    </ion-input>
+    </ion-item>
+    <ion-text
+    class="ion-text-left"
+    color="danger"
+    *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
+    <p class="error">*Please enter a Username</p>
+  </ion-text>
+
+    <ion-item>
+      <ion-label color="secondary" position="stacked">Email</ion-label>
+      <ion-input 
+      formControlName="email">
+    </ion-input>
+    </ion-item>
+    <ion-text
+    class="ion-text-left"
+    color="danger"
+    *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+    <p class="error">*Please enter proper email</p>
+  </ion-text>
+    
+    <ion-item>
+      <ion-label color="secondary" position="stacked">Password</ion-label>
+      <ion-input 
+      formControlName="password"
+      [type] ="isTypePword ? 'password' : 'text'">
+    </ion-input>
+    </ion-item>
+    <ion-text
+      class="ion-text-left"
+      color="danger"
+      *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+      <p
+        class="error"
+        *ngIf="signupForm.get('password').invalid && signupForm.get('password').errors['required']">
+        *Please enter password of length 8 minimum
+      </p>
+    </ion-text>
+  </div>
+      
+  <ion-button (click)="onSubmit()" expand="block" class="ion-margin" color ="secondary" fill="solid" class="login-btn" href="home">SIGN UP</ion-button>
+    
+  </ion-card-content>
+
+</form>
+</ion-content>
+-->
+
+<ion-content >
+
+  <ion-card>
+    <ion-img src="assets/images/ufv design 1.png" class="top-design"></ion-img>
+    <ion-card-title class="ion-text-center">
+      CREATE ACCOUNT
+    </ion-card-title> 
+  </ion-card> 
+
+	<form (ngSubmit)="login()" [formGroup]="credentials">
+   <ion-item fill="solid" >
+      <ion-label color="secondary" position="stacked">Username</ion-label>
+			<ion-input type="username" formControlName="username"></ion-input>
+    </ion-item> 
+
+		<ion-item fill="solid" >
+      <ion-label color="secondary" position="stacked">Email</ion-label>
+			<ion-input type="email" formControlName="email"></ion-input>
+			<ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"
+				>Email is invalid</ion-note
+			>
+		</ion-item>
+		<ion-item fill="solid" class="ion-margin-bottom">
+      <ion-label color="secondary" position="stacked">Password</ion-label>
+			<ion-input type="password" formControlName="password"></ion-input>
+			<ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"
+				>Password needs to be 6 characters</ion-note
+			>
+		</ion-item>
+
+
+		<ion-button type="button" expand="block" color="secondary" class="ion-margin" (click)="register()"
+      >SIGN UP</ion-button>
+	</form>
+</ion-content>

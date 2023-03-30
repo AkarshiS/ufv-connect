@@ -1,0 +1,66 @@
+
+ion-header{
+    position: absolute;
+}
+
+ion-content{
+    --ion-background-color:rgb(255, 255, 255) !important;
+}
+
+ion-toolbar{
+    --ion-background-color: transparent;
+    --opacity:0;
+}
+/*
+.signin-btns{
+    margin-top: 25px;
+
+}*/
+
+.wrapform{
+    margin-top: 30px;
+}
+
+ion-item{
+    ion-input{
+        color:rgb(0, 0, 0);
+    }
+}
+
+ion-card{
+    --ion-background-color: transparent;
+    box-shadow: none !important;
+    margin-left: -10px;
+    margin-right:0px;
+    margin-top:1px;
+}
+
+.login-btn{
+    --ion-color-primary: #00703C;
+    padding: 1px;
+    //padding-left:40px;
+    //padding-right: 40px;
+}
+.signup-btn{
+ padding-top:80px;
+  // padding-left:100px;
+ //   padding-right: 40px;
+}
+
+.ion-margin{
+   margin-bottom: 0px;
+   margin-top:10px;
+  }
+
+.btn-color{
+    --color: secondary;
+}
+ion-img{
+    margin-left:0px;
+    margin-right:0px;
+}
+.image-bottom{
+    margin-bottom:100px;
+    margin-top:100px;
+}
+

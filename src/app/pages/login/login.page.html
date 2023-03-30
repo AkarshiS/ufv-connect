@@ -1,0 +1,93 @@
+
+<ion-content [fullscreen]="true">
+
+  
+  <ion-card>
+    <!--<ion-img src="assets/images/ufv top design.png"></ion-img> -->
+    <ion-img src="assets/images/ufv design 1.png" class="top-design"></ion-img>
+  </ion-card> 
+  <div class="ion-text-center">
+  </div> 
+  
+<!--
+<form [formGroup]="form">
+  
+    <ion-card-content> 
+    <div class="ion-text-center">
+    <ion-item>
+      <ion-label color="secondary" position="stacked">Email</ion-label>
+      <ion-input 
+      formControlName="email">
+    </ion-input>
+    </ion-item>
+    <ion-text
+    class="ion-text-left"
+    color="danger"
+    *ngIf="!form.get('email').valid && form.get('email').touched">
+    <p class="error">*Please enter proper email</p>
+  </ion-text>
+    
+    <ion-item>
+      <ion-label color="secondary" position="stacked">Password</ion-label>
+      <ion-input 
+      formControlName="password"
+      [type] ="isTypePword ? 'password' : 'text'"
+      >
+    </ion-input>
+    </ion-item>
+    <ion-text
+      class="ion-text-left"
+      color="danger"
+      *ngIf="!form.get('password').valid && form.get('password').touched">
+      <p
+        class="error"
+        *ngIf="form.get('password').invalid && form.get('password').errors['required']">
+        *Please enter password
+      </p>
+    </ion-text>
+
+  </div>
+      <div class="ion-text-center">
+      <ion-button (click)="onSubmit()" expand="block" class="ion-margin" color ="primary" fill="solid" class="login-btn" href="home">LOGIN</ion-button>
+    </div>
+
+    <div class ="ion-text-center">
+      <ion-button expand="block" fill="outline" color="white" class="ion-margin" class="login-btn" href="signup">SIGN UP</ion-button>
+    </div>
+  </ion-card-content>
+-->
+
+<!-- <ion-img class="ion-no-margin" src="assets/images/ufv design bottom.png"></ion-img> -->
+
+
+<form (ngSubmit)="login()" [formGroup]="credentials">
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-label color="secondary" position="stacked">Email</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+    <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors"
+      >Email is invalid</ion-note
+    >
+  </ion-item>
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-label color="secondary" position="stacked">Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+    <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors"
+      >Password must minimum 6 characters</ion-note
+    >
+  </ion-item>
+
+
+<div class="ion-text-center">
+<ion-button (click)="login()" [disabled]="!credentials.valid" expand="block" class="ion-margin" color ="primary" fill="solid">
+  LOGIN</ion-button>
+</div>
+
+<div class ="ion-text-center">
+<ion-button expand="block" fill="outline" color="white" class="ion-margin" href="signup">
+  SIGN UP</ion-button>
+</div>
+
+
+</form>
+</ion-content>
+
