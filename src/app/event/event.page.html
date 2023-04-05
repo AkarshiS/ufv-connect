@@ -2,11 +2,131 @@
   <ion-toolbar>
     <ion-title>Events</ion-title>
     <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
+      <ion-menu-button menu="main-menu" color="secondary"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+
+     
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-segment [(ngModel)]="calendar.mode">
+    <ion-segment-button value="month">
+      <ion-label>Month</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="week">
+      <ion-label>Week</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="day">
+      <ion-label>Day</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-</ion-content>
+  <!--<ion-button class="ion-text-center" (click)="createRandomEvents()" expand="block" fill="outline">
+    Random
+  </ion-button>-->
+
+ <!-- <ion-button class="ion-text-center" (click)="newEvent()" expand="block" fill="outline">
+    Add Event
+  </ion-button> -->
+
+  <ion-button class="ion-text-center" (click)="newEvent()" expand="block" fill="outline">
+    Add Event
+  </ion-button>
+
+  
+     <ion-modal #new_event [isOpen]="open_new_event" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar color="primary">
+              <ion-title>Event</ion-title>
+              <ion-buttons slot="end">
+                <ion-button color = "secondary" (click)="cancel()" >Cancel</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          
+          <ion-content>
+
+            <ion-item fill="solid" >
+              <ion-label color="secondary" position="stacked">Event Name</ion-label>
+              <ion-input type="string" [(ngModel)]="NewEvent.title"></ion-input>
+            </ion-item>
+        <!--  <ion-item fill="solid" >
+              <ion-label color="secondary" position="stacked">Start Time</ion-label>
+              <ion-input  [(ngModel)]="theStart"></ion-input>
+            </ion-item> 
+            <ion-item fill="solid" >
+              <ion-label color="secondary" position="stacked">End Time</ion-label>
+              <ion-input  [(ngModel)]="theEnd" ></ion-input>
+            </ion-item> -->
+
+
+          <ion-item fill="solid" >
+             <ion-label color="secondary" position="stacked">Start Time</ion-label>
+              <ion-datetime presentation="date-time" [preferWheel]="true" displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="NewEvent.startTime" [min]="minDate"></ion-datetime> 
+            </ion-item> 
+     
+            <ion-item fill="solid" >
+              <ion-label color="secondary" position="stacked">End Time</ion-label>
+              <ion-datetime presentation="date-time" [preferWheel]="true" displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="NewEvent.endTime" [min]="minDate"></ion-datetime>
+            </ion-item> 
+
+            <ion-button class="ion-text-center" (click)="addEvent()" expand="block" color="secondary">
+              Add Event
+            </ion-button>
+
+          </ion-content> 
+        </ng-template>
+      </ion-modal>
+    
+   
+   
+
+  
+
+  <ion-row>
+    <ion-col size="2">
+      <ion-button fill="clear" (click)="back()">
+        <ion-icon name="arrow-back" ></ion-icon>
+      </ion-button>
+    </ion-col>
+
+    <ion-col class="ion-text-center">
+      <h2>{{ viewTitle }}</h2>
+    </ion-col> 
+
+    <ion-col size="2">
+      <ion-button fill="clear" (click)="next()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-col> 
+  </ion-row>
+
+  
+  <calendar
+  id="myCal"
+  [eventSource]="eventSource"
+  [calendarMode]="calendar.mode"
+  [currentDate]="calendar.currentDate"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onEventSelected)="onEventSelected($event)"
+  (onCurrentDateChanged)="onCurrentDateChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)"
+  startHours="0"
+  endHours="23">
+  </calendar>
+   
+
+ <!-- <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button color="secondary" (click)="addEvent()">
+      <ion-icon  name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> 
+</ion-content> -->
+
+
+
+

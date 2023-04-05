@@ -179,9 +179,19 @@ export class AuthService {
       return userData;
       //return user;
 		} catch (e) {
-			return null;
+			return e;
 		}
 	}
+
+  async newEvent({Title, startTime, endTime}){
+    const data = {
+      start: startTime,
+      end: endTime,
+      title: Title,
+    };
+   // console.log('event data: ', data);
+   await this.apiService.setDocument(`events/${Title}`, data);
+  }
 
   checkAuth(): Promise<any> {
     return new Promise((resolve, reject) => {

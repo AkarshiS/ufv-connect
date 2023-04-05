@@ -7,13 +7,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="white">
+<ion-content>
+  
   <ion-list *ngIf="segment == 'chats' && (chatRooms | async) as rooms">
     <ion-list-header class="ion-padding-bottom">
     RECENT
     </ion-list-header>
-  
-    <ion-item *ngFor="let item of rooms"
+   
+    <ion-item 
+    *ngFor="let item of rooms | filter:filterTerm"
     (click)="getChat(item)"
     [detail]="true">
     <ng-container *ngIf="(item?.user | async) as user">
@@ -48,9 +50,11 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
+   <!-- <ion-content *ngIf="(users | async) as user$"> -->
     <ion-content *ngIf="(users | async) as user$">
+      <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
       <ion-list class="ion-margin-top" [style.background]="'transparent'" lines="none">
-       <app-user-list *ngFor="let item of user$"
+       <app-user-list *ngFor="let item of user$ | filter:filterTerm"
        [item]="item"
        (onClick)="startChat($event)"></app-user-list>
       </ion-list>

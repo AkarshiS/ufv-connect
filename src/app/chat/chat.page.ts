@@ -3,6 +3,7 @@ import { ModalController, PopoverController } from '@ionic/angular';
 import { Observable, take } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
 import { ChatService } from '../services/chat/chat.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-chat',
@@ -17,15 +18,7 @@ export class ChatPage implements OnInit {
   open_new_chat = false;
   users: Observable<any[]>;
   chatRooms: Observable<any[]>;
-  //users = [
-  //  {id: 1, name: 'Test One', photo: 'https://i.pravatar.cc/385'},
-  //  {id: 2, name: 'Test Two', photo: 'https://i.pravatar.cc/325'}
-  //];
-  // chatRooms = [
-  //   {id: 1, name: 'Test One', photo: 'https://i.pravatar.cc/385'},
-  //   {id: 2, name: 'Test Two', photo: 'https://i.pravatar.cc/325'}
-  // ];
-
+  filterTerm: string;
   constructor(
     private router: Router,
     private chatService: ChatService
