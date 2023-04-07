@@ -8,6 +8,32 @@
 </ion-header>
 
 <ion-content>
+  <ion-card (click)="eventClick()">
+    <ion-card-header>
+      <ion-card-title color="primary">Calendar</ion-card-title>
+      <ion-card-subtitle color="secondary">calendar of UFV events</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div class="ion-text-center">
+      <img class="calendarimg"src="assets/images/calendar.png" />
+    </div>
+  
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card (click)="chatClick()">
+    <ion-card-header>
+      <ion-card-title color="primary">Chats</ion-card-title>
+      <ion-card-subtitle color="secondary">Chat with other users</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div class="ion-text-center">
+      <img src="assets/images/chat.png" />
+    </div>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 

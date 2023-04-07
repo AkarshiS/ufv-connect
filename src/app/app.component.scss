@@ -2,6 +2,31 @@ ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
 
+
+.modal-wrapper {
+  --width: 70%;
+  --height: 30%;
+  --border-radius: 8px!important;
+}
+
+ion-text{
+  font-size: 1.2rem;
+  padding-bottom: 40px;
+}
+.buttons{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.writing{
+  padding-top:10px;
+  padding-bottom: 30px;
+}
+
+.ion-margin{
+  margin-bottom: 20px;
+  margin-top:10px;
+ }
+
 ion-menu.md ion-content {
   --padding-start: 8px;
   --padding-end: 8px;

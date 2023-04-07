@@ -3,7 +3,6 @@ import { AlertController, LoadingController, ModalController, NavController, Nav
 import { CalendarComponent, CalendarMode  } from 'ionic2-calendar';
 import { CalendarComponentOptions } from 'ion2-calendar';
 import { Firestore } from '@angular/fire/firestore';
-//import { Firestore } from 'firebase/firestore';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { formatDate } from '@angular/common';
@@ -19,8 +18,7 @@ import * as moment from 'moment';
   templateUrl: './event.page.html',
   styleUrls: ['./event.page.scss'],
   providers: [NavParams]
-})
-//export class EventPage implements OnInit { 
+}) 
   export class EventPage{
 
   @ViewChild('new_event') modal: ModalController;
@@ -41,8 +39,7 @@ NewEvent = {
 minDate = new Date().toISOString();
 
 calendar: any = {
-  // mode: 'month',
-  mode: 'month',// as CalendarMode,
+  mode: 'month',
    currentDate: new Date(),
  };
 
@@ -72,22 +69,14 @@ constructor(
     console.log("current date change: " + event);
   }
 
-// ngOnInit() {
-//   this.resetEvent();
-//   }
-
-
   addEvent() {
-    //const start = this.selectedDate;//this.NewEvent.startTime;//this.NewEvent.startTime;// new Date(this.NewEvent.startTime);//this.NewEvent.startTime; //
     const start = this.NewEvent.startTime;
-    const end = this.NewEvent.endTime;//this.NewEvent.endTime;//this.NewEvent.endTime;//new Date(this.NewEvent.endTime);//this.NewEvent.endTime; //
-    //end.setMinutes(end.getMinutes() + 60);
-
-    // event object created to include semi-random title
+    const end = this.NewEvent.endTime;
+    
     const event = {
-      title: this.NewEvent.title,//"Event #" + start.getMinutes(),this.NewEvent.title,
-      startTime: new Date(start),//this.NewEvent.startTime,
-      endTime: new Date(end),//this.NewEvent.endTime,
+      title: this.NewEvent.title,
+      startTime: new Date(start),
+      endTime: new Date(end),
       allDay: false,
     };
     console.log(event);
@@ -99,31 +88,13 @@ constructor(
     console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
   }
   
- theTitle: string ="";
-// theStart: string ="";
-// theEnd: string ="";
 currentMonth: string;
-// allEvents = [];
-
 viewTitle: string;
 date: string;
 type: 'string';
 selectedDate = new Date();
 
 @ViewChild(CalendarComponent) myCal: CalendarComponent;
-
-myData = [
-  {
-    title: "test",
- //   description: "test description",
-    startTime: new Date(2023, 4,4,4,4,4),
-    endTime: new Date(2023,4,4,4,4,4)
-  }
-]
-
-// onViewTitleChanged(title: string){
-//   this.currentMonth = title;
-// }
 
 newEvent(){
   this.open_new_event = true;
@@ -136,8 +107,7 @@ cancel() {
   this.open_new_event = false;
 }
 
-
-addNewEvent(){
+/*addNewEvent(){
   var events = [];
   let start = this.selectedDate;
   let end = this.selectedDate;
@@ -159,69 +129,8 @@ addNewEvent(){
   //this.db.collection(`events`).add(event);
   
  // this.apiService.setDocument(`events/${event.title}`, event);
-  }
+  }*/
 
-/*createRandomEvents() {
-  var events=[];
-  for(var i=0;i<50;i+=1){
-    var date=new Date();
-    var eventType=Math.floor(Math.random()*2);
-    var startDay=Math.floor(Math.random()*90)-45;
-    var endDay=Math.floor(Math.random()*2)+startDay;
-    var startTime;
-    var endTime;
-    if(eventType===0){
-      startTime=new Date(
-        Date.UTC(
-          date.getUTCFullYear(),
-          date.getUTCMonth(),
-          date.getUTCDate() +startDay
-        )
-      );
-      if(endDay===startDay){
-        endDay+=1;
-      }
-      endTime = new Date(
-        Date.UTC(
-          date.getUTCFullYear(),
-          date.getUTCMonth(),
-          date.getUTCDate()+endDay
-        )
-      );
-      events.push({
-        title: 'All Day - ' + i,
-        startTime: startTime,
-        endTime: endTime,
-        allDay: true,
-      });
-    } else {
-      var startMinute = Math.floor(Math.random()*24*60);
-      var endMinute = Math.floor(Math.random()*180);+startMinute;
-      startTime = new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate()+startDay,
-        0,
-        date.getMinutes()+startMinute
-      );
-      endTime=new Date(
-        date.getFullYear(),
-        date.getMonth(),
-        date.getDate() + endDay,
-        0,
-        date.getMinutes()+endMinute
-      );
-      events.push({
-        title: 'Event - ' + i,
-        startTime: startTime,
-        endTime: endTime,
-        allDay: false,
-      });
-    }
-  }
-  this.eventSource = events;
- // this.router.navigate(['/','event']);
-} */
 
 next() {
   this.myCal.slideNext();
@@ -267,7 +176,6 @@ onEventSelected(event){
 onCurrentDateChanged(event: Date){
   console.log('current date change: ' + event);
 }*/
-
 onRangeChanged(ev){
   console.log('range changed: startTime: ' + ev.startTime + ', endTime ' + ev.endTime);
 }

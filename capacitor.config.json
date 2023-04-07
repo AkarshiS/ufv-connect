@@ -1,6 +1,24 @@
+
 {
   "appId": "io.ionic.starter",
   "appName": "UFVConnect",
   "webDir": "www",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+
+
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "launchFadeOutDuration": 3000,
+      "showSpinner": true,
+      "iosSpinnerStyle": "small",
+      "spinnerColor": "#999999",
+      "splashFullScreen": true,
+      "splashImmersive": true,
+      "layoutName": "launch_screen",
+      "useDialog": true
 }
+  }
+}
+
