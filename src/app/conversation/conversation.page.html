@@ -36,7 +36,13 @@
     <ion-buttons slot="start">
       <ion-icon name="chevron-back-outline" routerLink="/chat"></ion-icon>
     </ion-buttons>
-    <ion-title>{{name}}</ion-title>
+    <ion-avatar class="image-center">
+      <ion-img [src] = "photo"></ion-img>
+     <!-- <ion-img src = 'assets/images/image-placeholder.png'></ion-img> -->
+    </ion-avatar>
+    <div class="ion-text-center">
+    <ion-text>{{name}}</ion-text>
+  </div>
   </ion-toolbar>
 </ion-header>
 

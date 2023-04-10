@@ -14,6 +14,7 @@ export class ConversationPage implements OnInit {
   @ViewChild(IonContent, {static: false }) content: IonContent;
   id: string;
   name: string;
+  photo: any;
   chats: Observable<any[]>;
   message: string;
   isLoading: boolean;
@@ -33,13 +34,18 @@ export class ConversationPage implements OnInit {
     console.log('data: ', data);
     if(data?.name) {
       this.name = data.name;
+      this.photo = data.photo;
     }
+
     const id = this.route.snapshot.paramMap.get('id');
     console.log('check id: ', id);
+    const photo = this.route.snapshot.paramMap.get('photo');
+    console.log('photo ', photo);
     if(!id) {
       this.navCtrl.back();
       return;
     }
+
     this.id = id;
     this.chatService.getChatRoomMessages(this.id);
     this.chats = this.chatService.selectedChatRoomMessages;
@@ -69,7 +75,6 @@ export class ConversationPage implements OnInit {
     } catch(e){
       this.isLoading=false;
       console.log(e);
-    //  this.global.errorToast();
     }
   }
 

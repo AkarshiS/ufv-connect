@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 //mport { AuthGuard } from './guards/auth/auth.guard';
 import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -18,11 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
     ...canActivate(redirectLoggedInToHome)
   },
-  {
-    path: 'splash',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
-    
-  },
+
   {
     path: 'home',
     loadChildren: () => import('./home-page/home-page.module').then( m => m.HomePagePageModule),
@@ -49,6 +46,12 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
+  {
+    path: 'upload-image',
+    loadChildren: () => import('./upload-image/upload-image.module').then( m => m.UploadImagePageModule)
+  },
+
+
 
 
   

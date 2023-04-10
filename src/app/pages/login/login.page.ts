@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LoginPage implements OnInit {
 	credentials: FormGroup;
+  
 
 	constructor(
 		private fb: FormBuilder,
@@ -18,7 +19,11 @@ export class LoginPage implements OnInit {
 		private alertController: AlertController,
 		private authService: AuthService,
 		private router: Router
-	) {}
+	) {
+
+  }
+
+ 
 
 	get email() {
 		return this.credentials.get('email');
@@ -34,6 +39,7 @@ export class LoginPage implements OnInit {
 			password: ['', [Validators.required, Validators.minLength(6)]]
 		});
 	}
+  
 
 	async register() {
 		const loading = await this.loadingController.create();

@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content>
-  
   <ion-list *ngIf="segment == 'chats' && (chatRooms | async) as rooms">
     <ion-list-header class="ion-padding-bottom">
     RECENT
@@ -19,13 +18,13 @@
     (click)="getChat(item)"
     [detail]="true">
     <ng-container *ngIf="(item?.user | async) as user">
-     <!-- <ion-avatar slot="start">
+      <ion-avatar slot="start">
         <img [src]="getUser(user)?.photo"/>
-      </ion-avatar> -->
+      </ion-avatar> 
     <ion-label>
       {{getUser(user)?.name}}
       <p>
-        <!--<ion-text> message</ion-text>-->
+        <ion-text> </ion-text>
       </p>
     </ion-label>
   </ng-container>
@@ -54,10 +53,10 @@
     <ion-content *ngIf="(users | async) as user$">
       <!--<ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>-->
       <ion-list class="ion-margin-top" [style.background]="'transparent'" lines="none">
-       <app-user-list 
+      <app-user-list 
        *ngFor="let item of user$"
        [item]="item"
-       (onClick)="startChat($event)"></app-user-list>
+       (onClick)="startChat($event)"></app-user-list> 
       </ion-list>
     </ion-content>
   </ng-template>

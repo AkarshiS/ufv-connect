@@ -67,7 +67,8 @@ export class ChatPage implements OnInit {
       this.cancel();
       const navData: NavigationExtras = {
         queryParams: {
-          name: item?.name
+          name: item?.name,
+          photo: item?.photo
         }
       };
       this.router.navigate(['/','chat', 'chats',room?.id], navData);
@@ -86,7 +87,9 @@ export class ChatPage implements OnInit {
       console.log('data: ', user_data);
       const navData: NavigationExtras = {
         queryParams: {
-          name: user_data?.name
+          name: user_data?.name,
+          photo: user_data?.photo
+
         }
       };
       this.router.navigate(['/','chat','chats',item?.id], navData);
@@ -96,4 +99,8 @@ export class ChatPage implements OnInit {
   getUser(user: any){
     return user;
   }
+  getMessage(message: any){
+    return message;
+  }
+
 }

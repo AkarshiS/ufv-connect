@@ -1,4 +1,4 @@
-ion-content.header{
+ion-content{
     ion-avatar{
         width: 100% !important;
         height: 100% !important;
@@ -19,6 +19,13 @@ ion-content.header{
        } 
    }
 }
+ion-header{
+    height: 10vh;
+}
+ion-toolbar{
+    height: 10vh;
+}
+
 
 .info{
     display:flex;
@@ -123,3 +130,7 @@ ion-textarea{
           }
       }
   }
+  .image-center{
+    margin:0 auto;
+
+    }

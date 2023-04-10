@@ -2,7 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 import { SplashScreen } from '@capacitor/splash-screen';
-import { ModalController } from '@ionic/angular';
+import { ModalController, Platform } from '@ionic/angular';
+import { indexedDBLocalPersistence, initializeAuth } from '@angular/fire/auth';
+import { initializeApp } from '@angular/fire/app';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -26,8 +29,11 @@ export class AppComponent {
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(
     private authService: AuthService,
-		private router: Router
-  ){}
+		private router: Router,
+    
+  ){
+    
+  }
 
 
 
@@ -46,4 +52,6 @@ export class AppComponent {
   }
 
   onWillDismiss(event: any) {}
+
+
 }

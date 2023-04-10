@@ -1,9 +1,17 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-title>Home</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu" color="secondary"></ion-menu-button>
     </ion-buttons>
+
+    <!--<ion-button slot="end" href="profile">-->
+      <ion-button slot="end" (click)="seeProfile()">
+      <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+    </ion-button>
+    
+   
   </ion-toolbar>
 </ion-header>
 
@@ -34,6 +42,37 @@
     </div>
     </ion-card-content>
   </ion-card>
+
+  <ion-modal #see_profile [isOpen]="open_see_profile" (willDismiss)="onWillDismiss($event)" class="modal-wrapper">
+    <div class="ion-text-center">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="white">
+          <ion-text>Profile</ion-text>
+          <ion-buttons slot="end">
+            <ion-button color = "secondary" (click)="cancel()" >X</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+     <!-- <ion-content *ngIf="(users | async) as user$"> -->
+      <ion-content>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{ profileName }}
+           </ion-card-title>
+           <ion-avatar>
+            <ion-img [src] = "profileIMG"></ion-img>
+          </ion-avatar>
+           <ion-card-subtitle>
+            {{ email }}
+           </ion-card-subtitle>
+          </ion-card-header>
+      </ion-card>
+      </ion-content>
+    </ng-template>
+  </div>
+  </ion-modal>
 
 </ion-content>
 

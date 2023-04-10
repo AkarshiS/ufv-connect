@@ -15,6 +15,30 @@ ion-header{
       color: #fff;
     }
 }
+
+ion-card-title{
+  color: #00703C;
+}
+ion-card-subtitle{
+  color: #8DC63F;;
+}
+
+main-header{
+  --background:#00703C;
+      font-size: 2rem !important;
+      color: #fff;
+}
+
+modal-header{
+
+      font-size: 2rem !important;
+      color: #00703C;
+}
+ion-text{
+  color: #00703C;
+}
+
+
 // ion-card{
 //   height:35%;
 //   width: 90%;
@@ -27,5 +51,11 @@ img{
 .calendarimg{
   height: 30%;
   width: 30%;
+}
+
+.modal-wrapper {
+  --width: 70%;
+  --height: 50%;
+  --border-radius: 8px!important;
 }
 

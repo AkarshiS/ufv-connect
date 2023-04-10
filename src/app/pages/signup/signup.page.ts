@@ -20,9 +20,11 @@ export class SignupPage implements OnInit {
 		private router: Router
 	) {}
 
-  get username() {
-		return this.credentials.get('username');
-	}
+   get username() {
+	 	return this.credentials.get('username');
+	 }
+
+
 
 	get email() {
 		return this.credentials.get('email');
