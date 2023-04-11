@@ -16,6 +16,22 @@ ion-header{
     }
 }
 
+.text-wrapper{
+  top: 50%;
+}
+
+.img-wrapper{
+  position: absolute;
+  left: 50%;
+ // top: -30px;
+ top: 40%;
+  transform: translateX(-50%);
+  }
+
+  .image-center{
+    margin:0 auto;
+    }
+
 ion-card-title{
   color: #00703C;
 }
@@ -35,7 +51,7 @@ modal-header{
       color: #00703C;
 }
 ion-text{
-  color: #00703C;
+  color: #ffff;
 }
 
 
@@ -54,8 +70,57 @@ img{
 }
 
 .modal-wrapper {
-  --width: 70%;
+  --width: 80%;
   --height: 50%;
   --border-radius: 8px!important;
+ // --background-color: #00703C;
+ 
 }
+ion-modal{
+
+
+  img{
+    height: 60%;
+    width: 60%;
+  }
+  ion-title{
+    color: #ffffff;
+  }
+}
+// ion-modal{
+// ion-header{
+//     height: 5vh;
+// }
+// ion-toolbar{
+//     height: 5vh;
+// }
+// }
+
+ion-img{
+  height: 60%;
+  width: 60%;
+}
+
+ion-modal{
+  ion-card-subtitle{
+    margin-top: 15px;
+}
+}
+
+
+.avatar{
+        margin: auto;
+      }
+
+ion-padding{
+  padding-top: 20px;
+}
+//   height: 30%;
+//   width: 30%;
+//     }
+//   }
+// }
+  //  --ion-background-color: #00703C;
+
+
 

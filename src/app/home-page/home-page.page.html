@@ -44,34 +44,86 @@
   </ion-card>
 
   <ion-modal #see_profile [isOpen]="open_see_profile" (willDismiss)="onWillDismiss($event)" class="modal-wrapper">
-    <div class="ion-text-center">
+   
     <ng-template>
       <ion-header>
-        <ion-toolbar color="white">
-          <ion-text>Profile</ion-text>
-          <ion-buttons slot="end">
+        
+        <ion-toolbar color="primary"> 
+          <ion-title>Profile</ion-title>
+        
+          <ion-buttons slot="start">
             <ion-button color = "secondary" (click)="cancel()" >X</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-     <!-- <ion-content *ngIf="(users | async) as user$"> -->
-      <ion-content>
-        <ion-card>
+  <ion-content>
+      <!--<ion-content class="ion-text-center">
+       <ion-card>
           <ion-card-header>
+            <div class = "ion-text-center">
             <ion-card-title>
               {{ profileName }}
            </ion-card-title>
+          
+           <div class="container">
+             <div class="overlay">
+               <div class="img-wrapper">
            <ion-avatar>
             <ion-img [src] = "profileIMG"></ion-img>
           </ion-avatar>
-           <ion-card-subtitle>
+        </div>
+        </div>
+      </div>
+      <div class = "ion-text-center">
+      
+           <ion-card-subtitle class="ion-padding">
             {{ email }}
            </ion-card-subtitle>
+          
+          </div>
+        </div>
           </ion-card-header>
-      </ion-card>
-      </ion-content>
+     
+      
+      <ion-button  expand="full" *ngIf="!isLoading && !isLoaded" class="ion-text-center">
+        <ion-icon slot="start" lazy="true" name="image"></ion-icon>
+        <input type="file" (change)="uploadImageFire($event)" id="file-input" accept="image/png, image/jpg">
+      </ion-button>
+    </ion-card>
+    </ion-content>-->
+
+
+    <ion-card>
+      <ion-card-header>
+        <div class="ion-text-center">
+        <ion-card-title color="primary">{{ profileName }}</ion-card-title>
+      </div>
+        
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="ion-text-center">
+          <!--<ion-img [src] = "profileIMG"></ion-img>-->
+          <img [src] = "profileIMG"/>
+      </div>
+      <div class="ion-text-center">
+      <ion-card-subtitle color="secondary">{{ email }}</ion-card-subtitle>
+    </div>
+      </ion-card-content>
+      <ion-button fill="clear" size="small"color="medium" *ngIf="!isLoading && !isLoaded" class="ion-text-center">
+        <ion-icon slot="start" lazy="true" name="image"></ion-icon>
+        <div class="ion-text-center">
+          <input type="file" (change)="uploadImageFire($event)" id="file-input" accept="image/png, image/jpg">
+      </div>
+      </ion-button>
+
+    </ion-card>
+
+  </ion-content>
+
+
     </ng-template>
-  </div>
+  
   </ion-modal>
 
 </ion-content>

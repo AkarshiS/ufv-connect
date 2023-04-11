@@ -19,12 +19,12 @@ ion-content{
        } 
    }
 }
-ion-header{
-    height: 10vh;
-}
-ion-toolbar{
-    height: 10vh;
-}
+// ion-header{
+//     height: 10vh;
+// }
+// ion-toolbar{
+//     height: 10vh;
+// }
 
 
 .info{
@@ -115,7 +115,7 @@ ion-textarea{
     border-radius: 20px;
     border-color: #00703C;
     height: 35px;
-    //--padding-start: 20px;
+    --padding-start: 20px;
   } */
   ion-footer{
       ion-toolbar{
